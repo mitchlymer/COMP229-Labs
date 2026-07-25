@@ -1,38 +1,339 @@
-.App {
-  text-align: center;
+.navbar {
+    background-color: #1f2937;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo {
+    background-color: #2563eb;
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.nav-links a:hover {
+    text-decoration: underline;
 }
 
-.App-link {
-  color: #61dafb;
+.home-page {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: #f3f4f6;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hero-section {
+    max-width: 800px;
+    text-align: center;
+    background-color: white;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.hero-section h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: #111827;
+}
+
+.hero-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #374151;
+}
+
+.mission-statement {
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.primary-button {
+    display: inline-block;
+    background-color: #2563eb;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.primary-button:hover {
+    background-color: #1d4ed8;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1f2937;
+    color: white;
+}
+
+.about-page {
+    min-height: 70vh;
+    padding: 50px;
+    text-align: center;
+    background-color: #f3f4f6;
+}
+
+.profile-image {
+    width: 220px;
+    height: 220px;
+    background-color: #d1d5db;
+    border-radius: 50%;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #374151;
+}
+
+.about-page h2 {
+    margin-bottom: 20px;
+}
+
+.about-page p {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.projects-page {
+    min-height: 70vh;
+    padding: 50px;
+    background-color: #f3f4f6;
+    text-align: center;
+}
+
+.page-intro {
+    max-width: 750px;
+    margin: 0 auto 35px auto;
+    line-height: 1.6;
+    color: #374151;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.project-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: left;
+}
+
+.project-image {
+    height: 160px;
+    background-color: #d1d5db;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #374151;
+}
+
+.project-card h2 {
+    color: #111827;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: #374151;
+    line-height: 1.6;
+}
+
+.completion-date {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.services-page {
+    min-height: 70vh;
+    background-color: #f3f4f6;
+    padding: 50px;
+    text-align: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.service-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.service-card h2 {
+    margin-bottom: 20px;
+    color: #111827;
+}
+
+.service-card p {
+    line-height: 1.7;
+    color: #374151;
+}
+
+.references-page {
+    min-height: 70vh;
+    background-color: #f3f4f6;
+    padding: 50px;
+    text-align: center;
+}
+
+.references-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.reference-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: left;
+}
+
+.testimonial {
+    font-style: italic;
+    line-height: 1.7;
+    color: #374151;
+    margin-bottom: 25px;
+}
+
+.reference-card h2 {
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.reference-card p {
+    color: #374151;
+}
+
+.contact-page {
+    min-height: 70vh;
+    background-color: #f3f4f6;
+    padding: 50px;
+    text-align: center;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 30px auto 0 auto;
+}
+
+.contact-info,
+.contact-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: left;
+}
+
+.contact-info p {
+    line-height: 1.8;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    margin-bottom: 18px;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.contact-form textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.contact-form button {
+    border: none;
+    cursor: pointer;
+}
+
+.profile-picture {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .nav-links a {
+        margin-left: 0;
+    }
+
+    .project-grid,
+    .services-grid,
+    .references-grid,
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-section {
+        padding: 30px;
+    }
+
+    .hero-section h1 {
+        font-size: 32px;
+    }
 }
