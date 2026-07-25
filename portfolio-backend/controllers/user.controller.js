@@ -5,7 +5,6 @@ const formatUser = (user) => {
         firstname: user.firstname,
         lastname: user.lastname,
         email: user.email,
-        password: user.password,
         created: user.created,
         updated: user.updated,
         id: user._id
