@@ -14,6 +14,7 @@ function Navbar() {
                 <Link to="/services">Services</Link>
                 <Link to="/references">References</Link>
                 <Link to="/contact">Contact Me</Link>
+                <Link to="/admin">Admin</Link>
             </div>
         </nav>
     );
