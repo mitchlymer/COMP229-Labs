@@ -12,6 +12,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminServices from "./pages/admin/AdminServices";
 import AdminProjects from "./pages/admin/AdminProjects";
 import AdminReferences from "./pages/admin/AdminReferences";
+import AdminUsers from "./pages/admin/AdminUsers";
 
 import Footer from "./components/Footer";
 
@@ -33,6 +34,7 @@ function App() {
                 <Route path="/admin/services" element={<AdminServices />} />
                 <Route path="/admin/projects" element={<AdminProjects />} />
                 <Route path="/admin/references" element={<AdminReferences />} />
+                <Route path="/admin/users" element={<AdminUsers />} />
             </Routes>
 
             <Footer />
