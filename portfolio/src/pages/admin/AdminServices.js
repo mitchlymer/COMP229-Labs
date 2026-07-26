@@ -83,26 +83,45 @@ function AdminServices() {
         setError("");
         setSuccessMessage("");
 
-        if (editingId) {
-            await apiRequest(`/services/${editingId}`, {
-                method: "PUT",
-                body: JSON.stringify(formData)
+        try {
+            if (editingId) {
+                await apiRequest(`/services/${editingId}`, {
+                    method: "PUT",
+                    body: JSON.stringify(formData)
+                });
+
+                setServices(
+                    services.map((service) =>
+                        service.id === editingId
+                            ? {
+                                ...service,
+                                title: formData.title,
+                                description: formData.description
+                            }
+                            : service
+                    )
+                );
+
+                setEditingId(null);
+                setSuccessMessage("Service updated successfully.");
+            } else {
+                const result = await apiRequest("/services", {
+                    method: "POST",
+                    body: JSON.stringify(formData)
+                });
+
+                setServices([...services, result.data]);
+                setSuccessMessage("Service added successfully.");
+            }
+
+            setFormData({
+                title: "",
+                description: ""
             });
-
-            setServices(
-                services.map((service) =>
-                    service.id === editingId
-                        ? {
-                            ...service,
-                            title: formData.title,
-                            description: formData.description
-                        }
-                        : service
-                )
-            );
-
-            setEditingId(null);
-            setSuccessMessage("Service updated successfully.");
+        } catch (error) {
+            setError(error.message);
+        } finally {
+            setSubmitting(false);
         }
     };
 
