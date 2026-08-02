@@ -62,13 +62,7 @@ exports.addUser = async (req, res, next) => {
 
 exports.updateUser = async (req, res, next) => {
     try {
-        req.body.updated = Date.now();
-
-        const user = await User.findByIdAndUpdate(
-            req.params.id,
-            req.body,
-            { new: true }
-        );
+        const user = await User.findById(req.params.id);
 
         if (!user) {
             return res.status(404).json({
@@ -77,9 +71,30 @@ exports.updateUser = async (req, res, next) => {
             });
         }
 
+        if (req.body.firstname !== undefined) {
+            user.firstname = req.body.firstname;
+        }
+
+        if (req.body.lastname !== undefined) {
+            user.lastname = req.body.lastname;
+        }
+
+        if (req.body.email !== undefined) {
+            user.email = req.body.email;
+        }
+
+        if (req.body.password) {
+            user.password = req.body.password;
+        }
+
+        user.updated = Date.now();
+
+        await user.save();
+
         res.json({
             success: true,
-            message: 'User updated successfully.'
+            message: 'User updated successfully.',
+            data: formatUser(user)
         });
     } catch (err) {
         next(err);
