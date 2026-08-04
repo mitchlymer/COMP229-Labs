@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -8,6 +9,7 @@ import Projects from "./pages/Projects";
 import Services from "./pages/Services";
 import References from "./pages/References";
 import Contact from "./pages/Contact";
+import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminServices from "./pages/admin/AdminServices";
 import AdminProjects from "./pages/admin/AdminProjects";
@@ -30,11 +32,49 @@ function App() {
                 <Route path="/services" element={<Services />} />
                 <Route path="/references" element={<References />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/admin" element={<AdminDashboard />} />
-                <Route path="/admin/services" element={<AdminServices />} />
-                <Route path="/admin/projects" element={<AdminProjects />} />
-                <Route path="/admin/references" element={<AdminReferences />} />
-                <Route path="/admin/users" element={<AdminUsers />} />
+
+                <Route path="/admin/login" element={<AdminLogin />} />
+
+                <Route
+                    path="/admin"
+                    element={
+                        <ProtectedRoute>
+                            <AdminDashboard />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/admin/services"
+                    element={
+                        <ProtectedRoute>
+                            <AdminServices />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/admin/projects"
+                    element={
+                        <ProtectedRoute>
+                            <AdminProjects />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/admin/references"
+                    element={
+                        <ProtectedRoute>
+                            <AdminReferences />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/admin/users"
+                    element={
+                        <ProtectedRoute>
+                            <AdminUsers />
+                        </ProtectedRoute>
+                    }
+                />
             </Routes>
 
             <Footer />
