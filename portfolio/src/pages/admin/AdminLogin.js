@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { apiRequest, setAuthToken } from "../../api/api";
 
 function AdminLogin() {
@@ -9,6 +9,7 @@ function AdminLogin() {
         email: "",
         password: ""
     });
+
     const [submitting, setSubmitting] = useState(false);
     const [error, setError] = useState("");
 
@@ -50,7 +51,11 @@ function AdminLogin() {
                 Sign in to manage the portfolio database.
             </p>
 
-            <form className="admin-form" onSubmit={handleSubmit}>
+            <form
+                className="admin-form"
+                onSubmit={handleSubmit}
+                data-cy="signin-form"
+            >
                 <div className="form-group">
                     <label htmlFor="email">Email</label>
                     <input
@@ -59,6 +64,7 @@ function AdminLogin() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
+                        data-cy="signin-email"
                         required
                     />
                 </div>
@@ -71,16 +77,30 @@ function AdminLogin() {
                         name="password"
                         value={formData.password}
                         onChange={handleChange}
+                        data-cy="signin-password"
                         required
                     />
                 </div>
 
-                <button type="submit" disabled={submitting}>
+                <button
+                    type="submit"
+                    data-cy="signin-submit"
+                    disabled={submitting}
+                >
                     {submitting ? "Signing In..." : "Sign In"}
                 </button>
             </form>
 
-            {error && <p className="error-message">{error}</p>}
+            {error && (
+                <p className="error-message" data-cy="signin-error">
+                    {error}
+                </p>
+            )}
+
+            <p className="page-intro">
+                Don&apos;t have an account?{" "}
+                <Link to="/admin/signup">Create an account</Link>
+            </p>
         </main>
     );
 }
