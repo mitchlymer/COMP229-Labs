@@ -8,18 +8,31 @@ function Projects() {
     const [error, setError] = useState("");
 
     useEffect(() => {
+        const controller = new AbortController();
+
         const loadProjects = async () => {
             try {
-                const result = await apiRequest("/projects");
+                const result = await apiRequest("/projects", {
+                    signal: controller.signal
+                });
+
                 setProjects(result.data);
             } catch (error) {
-                setError(error.message);
+                if (error.name !== "AbortError") {
+                    setError(error.message);
+                }
             } finally {
-                setLoading(false);
+                if (!controller.signal.aborted) {
+                    setLoading(false);
+                }
             }
         };
 
         loadProjects();
+
+        return () => {
+            controller.abort();
+        };
     }, []);
 
     return (
@@ -43,13 +56,14 @@ function Projects() {
 
             {!loading && !error && projects.length > 0 && (
                 <div className="project-grid">
-                    {projects.map((project) => (
+                    {projects.map((project, index) => (
                         <ProjectCard
                             key={project.id}
                             title={project.title}
                             image={project.image}
                             description={project.description}
                             completionDate={project.completionDate}
+                            loadImmediately={index === 0}
                         />
                     ))}
                 </div>
